@@ -1,0 +1,29 @@
+package grundlegendeDatenstrukturen;
+import grundlegendeDatenstrukturen.List;
+
+public class Stack extends List{
+
+	
+	
+	public Stack(){
+		super();
+	}
+	
+	public boolean isEmpty(){
+		return super.isEmpty();
+	}
+	
+	public void push(Object o){
+		super.addFirst(o);
+	}
+	
+	public Object pop(){
+		return super.removeFirst();
+	}
+	
+	public Object peek(){
+		return super.getFirst();
+	}
+	
+	
+}

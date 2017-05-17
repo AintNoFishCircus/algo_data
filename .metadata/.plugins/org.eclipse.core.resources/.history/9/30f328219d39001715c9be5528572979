@@ -1,0 +1,38 @@
+package list;
+
+public class List{
+	
+	private Node head;
+	
+	public List(){
+		head = new Node();
+	}
+	
+	public boolean isEmpty(){
+		if (head.getNext()==null){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public void addFirst(Node n){
+		n.setNext(head.getNext());
+		head.setNext(n);
+	}
+	
+	public Node getFirst(){
+		if(!this.isEmpty()){
+			return head.getNext();
+		}else{
+			return null;
+		}
+	}
+	
+	public Object removeFirst(){
+		if(!isEmpty()){
+			return head.getNext().getElement();
+		}
+		return null;
+	}
+}

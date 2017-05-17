@@ -1,0 +1,12 @@
+package grundlegendeDatenstrukturen;
+
+public class DataStructureTest {
+
+	public static void main (String [] args){
+			
+		List list = new List();
+		list.addFirst(new Object());
+		System.out.println(list.getFirst());
+		
+	}
+}

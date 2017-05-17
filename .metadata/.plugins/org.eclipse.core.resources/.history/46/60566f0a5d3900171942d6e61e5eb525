@@ -1,0 +1,20 @@
+package list;
+
+public class Main {
+
+	public static void main (String [] args){
+		einfacheListe list = new einfacheListe();
+		
+		System.out.println(list.addFirst(5));
+		list.addFirst(6);
+		list.addFirst(7);
+		System.out.println(list.getLast());
+		list.addLast(23);
+	
+		System.out.println(list.getFirst());
+		System.out.println(list.getLast());
+		list.removeLast();
+		System.out.println(list.getLast());
+		
+	}
+}

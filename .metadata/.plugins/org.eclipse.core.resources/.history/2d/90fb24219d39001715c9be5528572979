@@ -1,0 +1,47 @@
+package list;
+
+public class Node {
+
+	private Object element;
+	private Node next;
+	private Node previous;
+	
+	public Node(Object element, Node nextElement){
+		setElement(element);
+		setNext(nextElement);
+	}
+	
+	public Node(){
+		setNext(null);
+	}
+	
+	public Node(int value, Node previousElement, Node nextElement){
+		setElement(value);
+		setNext(nextElement);
+		setPrevious(previousElement);
+	}
+	
+	public Object getElement(){
+		return element;
+	}
+	
+	public void setElement(Object element){
+		this.element = element;
+	}
+	
+	public Node getNext(){
+		return next;
+	}
+	
+	public void setNext(Node nextElement){
+		this.next = nextElement;
+	}
+	
+	public Node getPrevious(){
+		return previous;
+	}
+	
+	public void setPrevious(Node previousElement){
+		this.previous = previousElement;
+	}
+}

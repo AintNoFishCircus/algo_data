@@ -1,0 +1,20 @@
+package grundlegendeDatenstrukturen;
+
+public class List {
+
+	
+	
+	public List(){
+	 Node head = new Node();
+	}
+	
+	public boolean isEmpty(){
+		if(head.getNext()==null){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+}
