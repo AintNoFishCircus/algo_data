@@ -1,5 +1,13 @@
+/**
+ * Enthält Klassen für die wichtigsten Datenstrukturen
+ */
 package grundlegendeDatenstrukturen;
-
+/**
+ * 
+ * @author Patrick Seidel
+ * Einfach verkettete Liste
+ * Besitzt einen leeren Knoten <code>head</code> der auf den Anfang der Liste zeigt.
+ */
 public class List {
 
 	private Node head;
@@ -50,7 +58,10 @@ public class List {
 		head.setNext(temp.getNext());
 		return temp.getElement();
 	}
-	
+	/**
+	 * Fügt einen Knoten an das Ende der Liste an.
+	 * @param o Den Inhalt des letzten Objekts der Liste.
+	 */
 	public void addLast(Object o){
 		Node temp = head;
 		while(temp.getNext()!=null){
@@ -60,7 +71,10 @@ public class List {
 		temp.setNext(n);
 		
 	}
-	
+	/**
+	 * Gibt den Inhalt des letzten Knotens der Liste zurück.
+	 * @return Inhalt des letzten Objekts in der Liste.
+	 */
 	public Object getLast(){
 		Node temp = head;
 		while(temp.getNext()!=null){
