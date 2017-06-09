@@ -1,0 +1,20 @@
+package sorts;
+
+import java.util.ArrayList;
+
+public class Sort {
+
+	public static void insertionSort(ArrayList<Integer> array){
+		for(int i = 1; i < array.size(); i ++){
+			int puffer = array.get(i);
+			int j;
+			for(j = i ; j > 0 && array.get(j-1) > puffer; j--){
+				
+				array.set(j, array.get(j-1));
+				
+				
+			}
+			 array.set(j, puffer);
+		}
+	}
+}

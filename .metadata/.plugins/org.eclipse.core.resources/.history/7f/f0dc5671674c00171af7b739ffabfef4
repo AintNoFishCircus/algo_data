@@ -1,0 +1,36 @@
+package trees;
+
+import static org.junit.Assert.*;
+
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.Test;
+
+import junit.framework.TestCase;
+
+
+
+
+public class BinaryTreeTest extends TestCase  {
+
+	
+	BinaryTree bst = new BinaryTree();
+	int[] testIntegerList = new int[]{35,28,52,7,19,65,59,44};
+
+	@Test
+	public void testInsert(){
+		for(int i = 0; i < testIntegerList.length; i++){
+			assertEquals(true,bst.insert(testIntegerList[i]));
+			
+		}
+		
+	}
+	
+	@Test
+	public void testFindMinElementRecursively(){
+		assertEquals(7,bst.findMinElementRecursively(bst.getRoot()));
+	
+		
+	}
+
+}

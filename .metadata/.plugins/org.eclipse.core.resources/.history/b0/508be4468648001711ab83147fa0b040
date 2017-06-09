@@ -1,0 +1,206 @@
+package trees;
+
+import java.util.ArrayList;
+	
+	public class AVLTree{
+		  
+		  private AVLNode head, nullNode;
+		  
+		  
+		  public AVLTree(){
+		    head = new AVLNode(null);
+		    nullNode = new AVLNode(null);
+		    head.setRight(nullNode);
+		    nullNode.setRight(nullNode);
+		    nullNode.setLeft(nullNode);
+		    
+		  }
+		  
+		  public AVLNode getRoot(){
+			  return head.getRight();
+		  }
+		  public boolean insert(Comparable c){
+		   AVLNode n = head.getRight(), parent = head; 
+		   AVLNode temp = null;
+		    while (n != nullNode){
+		      parent = n;
+		      if(n != head){
+		        switch(n.getBalance()){
+		          case -2:
+		          if(n.getRight().getBalance() == -1){
+		            temp = rotateLeft(n);
+		            temp.getLeft().setBalance(0);
+		            System.out.println("Einfache Rotation links.");
+		            
+		          }else if(n.getRight().getBalance() == 1){
+		            temp = rotateRight(n.getRight());
+		            temp.getRight().setBalance(0);
+		            temp = rotateLeft(temp);
+		            temp.getLeft().setBalance(0);
+		            System.out.println("Doppelte Rotation rechts, links.");
+		          }else{
+		            System.out.println("Keine Rotation notwendig.");
+		          }
+		          
+		          break;
+		          case -1:
+		        	  if(n.getRight() != nullNode && n.getRight() == nullNode){
+				            n.setBalance(n.getBalance()+ 1);
+				          }else if(n.getRight() == nullNode && n.getLeft()== nullNode){
+				           
+				            
+				          }else if(n.getRight() == nullNode && n.getLeft() != nullNode){
+				            n.setBalance(n.getBalance()-1);
+				          }else{
+				           
+				          }
+				          break;
+		          case 0:
+		          if(n.getRight() != nullNode && n.getRight() == nullNode){
+		            n.setBalance(n.getBalance()+ 1);
+		          }else if(n.getRight() == nullNode && n.getLeft()== nullNode){
+		         
+		            
+		          }else if(n.getRight() == nullNode && n.getLeft() != nullNode){
+		            n.setBalance(n.getBalance()-1);
+		          }else{
+		           
+		          }
+		          break;
+		          case 1:
+		        	  if(n.getRight() != nullNode && n.getRight() == nullNode){
+				            n.setBalance(n.getBalance()+ 1);
+				          }else if(n.getRight() == nullNode && n.getLeft()== nullNode){
+				            
+				            
+				          }else if(n.getRight() == nullNode && n.getLeft() != nullNode){
+				            n.setBalance(n.getBalance()-1);
+				          }else{
+				          
+				          }
+				          break;
+		          case 2:
+		          if(n.getLeft().getBalance()== 1){
+		            temp = rotateRight(n);
+		            temp.getRight().setBalance(0);
+		            System.out.println("Einfache Rotation rechts.");
+		          }else if(n.getLeft().getBalance() == -1){
+		            temp = rotateLeft(n.getLeft());
+		            temp.getLeft().setBalance(0);
+		            temp = rotateRight(n);
+		            temp.getRight().setBalance(0);
+		             System.out.println("Doppelte Rotation links, rechts.");
+		          }else{
+		            System.out.println("Keine Rotation notwendig.");
+		          }
+		          break;
+		          default:
+		        	  
+		             
+		        }
+		        
+		        
+		      }
+		      
+		      int cmp = n.compareKeyTo(c);
+		      if(cmp == 0){
+		        return false;
+		      }else if (cmp < 0){
+		        n = n.getRight();
+		      }else{
+		        n = n.getLeft();
+		      }
+		      
+		    }
+		    
+		    AVLNode newNode = new AVLNode(c);
+		    newNode.setLeft(nullNode);
+		    newNode.setRight(nullNode);
+		    
+		    if(parent.compareKeyTo(c) < 0){
+		      parent.setRight(newNode);
+		      
+		      System.out.println("Inserted " + newNode.getKey() + " to the right of " + parent.getKey());
+		      return true;
+		    }else{
+		      parent.setLeft(newNode);
+		      
+		      System.out.println("Inserted " + newNode.getKey() + " to the left of " + parent.getKey());
+		      return true;
+		    }
+		      
+		      
+		      
+		   }
+		    
+		  
+		  
+		  public AVLNode rotateLeft(AVLNode n){
+		    AVLNode axis = n.getRight();
+		    n.setRight(n.getRight().getLeft());
+		    axis.setLeft(n);
+		    return axis;
+		  }
+		  
+		  public AVLNode rotateRight(AVLNode n){
+		    AVLNode axis = n.getLeft();
+		    n.setLeft(n.getLeft().getRight());
+		    axis.setRight(n);
+		    return n;
+		  }
+		  
+		
+	
+	public void traverseInorder(AVLNode n){
+		if(n!= nullNode){
+			traverseInorder(n.getLeft());
+			System.out.print(n.getKey() + " ");
+			System.out.println(n.getBalance());
+			traverseInorder(n.getRight());
+		}
+		
+	}
+	
+	/**
+	 * Recursevily traverses the tree in Preorder priority which means first root, second left,
+	 * third right.
+	 * @param n
+	 */
+	public void traversePreorder(AVLNode n){
+		if (n != nullNode){
+			System.out.print(n.getKey() + " ");
+			traversePreorder(n.getLeft());
+			traversePreorder(n.getRight());
+		}
+	}
+	/**
+	 * Recursevily traverses the tree in Postorder priority which means first left, second right,
+	 * third root.
+	 * @param n
+	 */
+	public void traversePostorder(AVLNode n){
+		if(n != nullNode){
+			traversePostorder(n.getLeft());
+			traversePostorder(n.getRight());
+			System.out.print(n.getKey() + " ");
+		}
+	}
+	
+	public void traverseLevelorder(ArrayList<AVLNode> q){
+		while(!q.isEmpty()){
+			AVLNode n = q.remove(q.size()-1);
+				
+			
+			if(n.getLeft()!= nullNode){
+				q.add(0,n.getLeft());
+			}
+			if(n.getRight()!= nullNode){
+				q.add(0,n.getRight());
+			}
+			
+			System.out.print(" " + n.getKey() + " ");
+			
+		}
+	}
+	
+}

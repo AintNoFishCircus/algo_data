@@ -1,0 +1,92 @@
+package sorts;
+
+import java.util.ArrayList;
+
+public class Sort {
+
+	/**
+	 * Insertion Sort : Komplexität = O(n^2) --> worst case
+	 * @param array
+	 * @return
+	 */
+	public static long insertionSort(ArrayList<Integer> array){
+		long start = System.currentTimeMillis();
+		//Go through the array in ascending order
+		// Has to iterate exactly array.size() -1 times
+		for(int i = 1; i < array.size(); i ++){
+			//save the actual value which is stored at position i
+			int buffer = array.get(i);
+			int j;
+			//As long as j is greater than 0 and the value at position j-1 is
+			//greater than the buffered value go through the array in descending order
+			// Only has to iterate if j and j - 1 are not in ascending order so a maximum
+			//of array.size() - i times in each iteration of i
+			for(j = i ; j > 0 && array.get(j-1) > buffer; j--){
+				//change positions of j an j-1
+				array.set(j, array.get(j-1));	
+			}
+			//Insert the buffered value at position j
+			 array.set(j, buffer);
+		}
+		
+		long end = System.currentTimeMillis();
+		return end -start;
+	}
+	
+	public static long selectionSort(ArrayList<Integer> array){
+		long start = System.currentTimeMillis();
+		int iterator = 0;
+		while(iterator < array.size()){
+		int min = iterator;
+			for(int i = iterator + 1; i < array.size(); i ++){
+				if(array.get(i) < array.get(min)){
+				min = i;
+				}
+			}
+			int buffer = array.get(iterator);
+			array.set(iterator, array.get(min));
+			array.set(min, buffer);
+			iterator += 1;
+		}
+		long end = System.currentTimeMillis();
+		long time = (end-start);
+		return time;
+		
+	}
+	
+	public static double bubbleSort(ArrayList<Integer> array){
+		long start = System.currentTimeMillis();
+		for (int i = array.size(); i > 1; i--){
+			for(int j = 0; j < i-1; j++ ){
+				if(array.get(j) > array.get(j+1)){
+					int buffer = array.get(j);
+					array.set(j, array.get(j+1));
+					array.set(j+1, buffer);
+				}
+			}
+		}
+		long end = System.currentTimeMillis();
+		double time = (end-start) /1000;
+		return time;
+	}
+	
+	public static void mergeSort(ArrayList<Integer> array){
+		if(array.size() <= 1){
+			return;
+		}else{
+			ArrayList leftList = new ArrayList();
+			ArrayList rightList = new ArrayList();
+			int n;
+			int m;
+			if(array.size()%2 == 0){
+				n = array.size()/2;
+			}else{
+				n = (array.size()/2) +1;
+				m = array.size() - n;
+				
+			}
+			
+			
+		}
+	}
+}

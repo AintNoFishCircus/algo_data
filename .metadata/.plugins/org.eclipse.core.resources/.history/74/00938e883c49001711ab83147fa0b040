@@ -1,0 +1,23 @@
+package trees;
+
+public class BST {
+	
+	public static void main (String [] args){
+		int [] intList = {35,28,52,7,19,65,59,44};
+		AVLTree bst = new AVLTree();
+		
+		
+		for(int i = 0; i < intList.length ; i++){
+			Integer key = intList[i];
+			bst.insert(key);
+			
+		}
+		
+		
+		
+		
+	
+		
+	}
+
+}

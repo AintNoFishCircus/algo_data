@@ -1,0 +1,39 @@
+package sorts;
+
+import java.util.ArrayList;
+
+public class Sort {
+
+	public static void insertionSort(ArrayList<Integer> array){
+		//Go through the array in ascending order
+		for(int i = 1; i < array.size(); i ++){
+			//save the actual value which is stored at position i
+			int buffer = array.get(i);
+			int j;
+			//As long as j is greater than 0 and the value at position j-1 is
+			//greater than the buffered value go through the array in descending order
+			for(j = i ; j > 0 && array.get(j-1) > buffer; j--){
+				//change positions of j an j-1
+				array.set(j, array.get(j-1));	
+			}
+			//Insert the buffered value at position j
+			 array.set(j, buffer);
+		}
+	}
+	
+	public static void selectionSort(ArrayList<Integer> array){
+		int iterator = 0;
+		while(iterator < array.size()){
+		int min = iterator;
+			for(int i = iterator + 1; i < array.size(); i ++){
+				if(array.get(i) < array.get(min)){
+				min = i;
+				}
+			}
+			int buffer = array.get(iterator);
+			array.set(iterator, array.get(min));
+			array.set(min, buffer);
+		}
+		
+	}
+}

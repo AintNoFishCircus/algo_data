@@ -82,7 +82,10 @@ public class List {
 			}	
 		return temp.getElement();
 	}
-	
+	/**
+	 * Entfernt den letzten Knoten aus der Liste
+	 * @return Der entfernte Knoten
+	 */
 	public Object removeLast(){
 		Node temp = head;
 		while(temp.getNext().getNext()!= null){

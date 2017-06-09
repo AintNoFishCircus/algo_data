@@ -1,0 +1,23 @@
+package trees;
+
+public class BST {
+	
+	public static void main (String [] args){
+		int [] intList = {23,12,6,78,123,3,98,34,54,8};
+		BinaryTree bst = new BinaryTree();
+		
+		
+		for(int i = 0; i < intList.length ; i++){
+			Integer key = intList[i];
+			System.out.println(bst.insert(key));
+			
+		}
+		
+		
+		bst.traverseInorder(bst.getRoot());
+		System.out.println("");
+		System.out.println("Minimales Element rekursiv: " + bst.findMinElementRecursively(bst.getRoot()));
+		System.out.println("Minimales Element iterativ: " + bst.findMinElementIterativ());
+	}
+
+}

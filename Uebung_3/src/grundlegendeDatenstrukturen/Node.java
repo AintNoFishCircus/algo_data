@@ -10,6 +10,7 @@ public class Node {
 	private Object element;
 	private Node next;
 	private Node previous;
+	
 	public Node(){
 		setNext(null);
 		

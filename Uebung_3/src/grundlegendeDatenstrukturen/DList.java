@@ -4,7 +4,7 @@ package grundlegendeDatenstrukturen;
  * @author Patrick Seidel
  *
  */
-public class DList {
+public class DList extends List {
 	private Node head;
 	private Node tail;
 	
@@ -12,7 +12,7 @@ public class DList {
 	 * Konstruktor
 	 */
 	public DList(){
-		head= new Node();
+		head = new Node();
 		tail = new Node();
 		head.setNext(tail);
 		tail.setPrevious(head);
@@ -39,10 +39,7 @@ public class DList {
 		head.setNext(n);
 		
 	}
-	/**
-	 * Gibt den Inhalt des ersten Knoten aus der Liste zurück
-	 * @return Das Objekt des ersten Knotens.
-	 */
+	
 	public Object getFirst(){
 		return head.getNext().getElement();
 	}
