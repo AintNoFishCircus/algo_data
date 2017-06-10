@@ -10,7 +10,7 @@ public class BinaryTree {
 	
 	/**
 	 * Creates an empty Instance of BinaryTree with a pointer <code>head</code>
-	 * and a <code>nullNode</code>. This node terminates the tree. So each leave of
+	 * and a <code>nullNode</code>. This node terminates the tree. So each leaf of
 	 * the BinaryTree has to point at <code>nullNode</code>
 	 */
 	public BinaryTree(){
@@ -163,7 +163,7 @@ public class BinaryTree {
 			if (node == nullNode)
 				return false;
 			
-			//Case 1: The Node which has to be deleted is a leave 
+			//Case 1: The Node which has to be deleted is a leaf 
 			
 			if (node.getLeft()== nullNode && node.getRight() == nullNode){
 				child = nullNode;
